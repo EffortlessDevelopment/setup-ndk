@@ -17,7 +17,7 @@ export async function getNdk(version: string): Promise<string> {
     const downloadPath = await tc.downloadTool(downloadUrl)
 
     core.info('Extracting...')
-    const extractPath = await tc.extractZip(downloadPath)
+    const extractPath = await tc.extractZip(downloadPath, '/usr/local/lib/android/sdk/ndk/')
 
     core.info('Adding to the cache...')
     toolPath = await tc.cacheDir(
